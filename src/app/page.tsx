@@ -1,10 +1,21 @@
-import Image from "next/image";
-import Login from "../components/login"
-import Menu from "../components/menu"
+'use client'
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Menu from "../components/menu";
+import Materii from "../components/materii";
+import Orar from "../components/orar";
+import Login from "../components/login";
+
 export default function Home() {
   return (
-    // TODO: Check for session, if no session found then display login page, login interaction with database, afterwards, display menu 
-    // <Login/> 
-    <Menu/>
-  )
+    <Router>
+      <div>
+        <Routes>
+          <Route path="/" element={<Menu />} />
+          <Route path="/materii" element={<Materii />} />
+          <Route path="/orar" element={<Orar />} />
+        </Routes>
+      </div>
+    </Router>
+  );
 }

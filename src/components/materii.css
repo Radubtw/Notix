@@ -1,0 +1,134 @@
+.materii-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-image: url('../img/fundalSalaDeClasa.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.materii-container h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+    margin-top: 0;
+    padding: 10px 20px;
+    background-color: #2c3e50;
+    width: fit-content;
+    max-width: 100%;
+    font-weight: bold;
+    border-radius: 8px;
+    z-index: 1;
+}
+
+.materii-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 80%;
+    margin-top: 30px;
+}
+
+.card {
+    background-color: #d3d3d3;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 280px;
+    margin: 0 auto;
+    border: 2px solid #e0e0e0;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 12px;
+}
+
+.card .profesor {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+}
+
+.view-button {
+    background-color: #2c3e50;
+    color: white;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.view-button:hover {
+    background-color: #34495e;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+::-webkit-scrollbar-horizontal {
+    height: 12px;
+}
+
+::-webkit-scrollbar-track-horizontal {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb-horizontal {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb-horizontal:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.menu-btn {
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    padding: 5px 15px; 
+    font-size: 14px; 
+    background-color: #2c3e50; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    width: auto;  
+    min-width: 100px; 
+  }
