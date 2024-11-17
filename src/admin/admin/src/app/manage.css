@@ -1,0 +1,64 @@
+/* public/styles/manage.css */
+
+/* Fundalul pentru întreaga pagină */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url('./img/fundalSalaDeClasa.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    border-radius: 10px; /* Colțuri rotunjite pentru container */
+    padding: 20px;
+  }
+  
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .manage-button {
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #34495e; /* Albastru închis, culoare profesională */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    width: 220px; /* Lățime fixă pentru butoane */
+    margin: 0 auto; /* Centrarea butoanelor */
+  }
+  
+  .manage-button:hover {
+    background-color: #34495e; /* Culoare mai deschisă la hover */
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Umbră subtilă pentru un efect de profunditate */
+  }
+  
+  .manage-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px #34495e(0, 123, 255, 0.5); /* Efect de focus */
+  }
+  
+  .manage-button:active {
+    transform: scale(0.98); /* Efect de apăsare pe buton */
+  }
+  
