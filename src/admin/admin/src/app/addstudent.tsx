@@ -4,18 +4,18 @@ import { useNavigate } from 'react-router-dom';
 
 import './addstudent.css';
 
-
 const AddStudent: React.FC = () => {
   const [studentData, setStudentData] = useState({
     nume: '',
     prenume: '',
+    email: '', 
     dataNasterii: '',
     clasa: '',
     materii: [] as string[],
   });
 
   const [showMateriiForm, setShowMateriiForm] = useState(false);
-  const availableMaterii = ['Matematică', 'Informatică', 'Biologie', 'Fizică', 'Chimie', 'Istorie', 'Geografie','Edicație Fizică','Lb. Franceză', 'Lb. Engleză', 'Lb. Română'];
+  const availableMaterii = ['Matematică', 'Informatică', 'Biologie', 'Fizică', 'Chimie', 'Istorie', 'Geografie', 'Edicație Fizică', 'Lb. Franceză', 'Lb. Engleză', 'Lb. Română'];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -46,6 +46,7 @@ const AddStudent: React.FC = () => {
     setStudentData({
       nume: '',
       prenume: '',
+      email: '', 
       dataNasterii: '',
       clasa: '',
       materii: [],
@@ -86,6 +87,18 @@ const AddStudent: React.FC = () => {
             id="prenume"
             name="prenume"
             value={studentData.prenume}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={studentData.email}
             onChange={handleChange}
             required
           />
