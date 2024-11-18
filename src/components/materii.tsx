@@ -52,7 +52,7 @@ const Materii: React.FC = () => {
             }
           );
 
-          setCourseIds(response.data.courses as string[]); // Update materii state with the courses
+          setCourseIds(response.data.courses as string[]); 
 
         } catch (error) {
           console.error('Error fetching courses', error);
@@ -62,8 +62,7 @@ const Materii: React.FC = () => {
       fetchCourses();
     
     }
-  }, [userId]); // Only run when userId changes
-
+  }, [userId]); 
 
   useEffect(() => {
     const fetchStudentCourses = async () => {

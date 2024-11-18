@@ -41,8 +41,11 @@ function Login({}: Props) {
       
         console.log('Check session response:', checkSessionResponse.data);
 
-        if (checkSessionResponse.status == 200){
-          navigate('/menu')
+        if (checkSessionResponse.status == 200 && isProfessor === 'false'){
+          navigate('/menu');
+        }
+        else if(checkSessionResponse.status == 200 && isProfessor === 'true'){
+          navigate('/menuprof')
         } else {
           console.error('Login Failed:', 'User not logged in');
         }
