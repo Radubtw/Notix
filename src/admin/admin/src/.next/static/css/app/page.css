@@ -1,0 +1,424 @@
+/*!**************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ../node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!../node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/manage.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************/
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url(/_next/static/media/fundalSalaDeClasa.fe6da164.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    border-radius: 10px; /* Colțuri rotunjite pentru container */
+    padding: 20px;
+  }
+  
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .manage-button {
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #34495e; /* Albastru închis, culoare profesională */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    width: 220px; /* Lățime fixă pentru butoane */
+    margin: 0 auto; /* Centrarea butoanelor */
+  }
+  
+  .manage-button:hover {
+    background-color: #34495e; /* Culoare mai deschisă la hover */
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Umbră subtilă pentru un efect de profunditate */
+  }
+  
+  .manage-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px #34495e(0, 123, 255, 0.5); /* Efect de focus */
+  }
+  
+  .manage-button:active {
+    transform: scale(0.98); /* Efect de apăsare pe buton */
+  }
+  
+/*!******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ../node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!../node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/addstudent.css ***!
+  \******************************************************************************************************************************************************************************************************************************************************************/
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #d3d3d3;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-container {
+  background-color: #d3d3d3;
+  padding: 30px; 
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px; 
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #003366;
+  font-size: 22px; 
+}
+
+.student-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; 
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+label {
+  font-size: 13px; 
+  margin-bottom: 6px; 
+  color: #333;
+}
+
+input {
+  padding: 8px; 
+  font-size: 14px; 
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+  color: black;
+}
+
+input:focus {
+  border-color: #2c3e50;
+}
+
+.submit-btn {
+  padding: 10px 20px; 
+  font-size: 14px;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background-color: #1b2a34;
+  transform: scale(1.05);
+}
+
+.submit-btn:active {
+  transform: scale(0.98);
+}
+
+.back-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px 15px;
+  font-size: 14px;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  min-width: 100px;
+}
+
+.materii-btn {
+  padding: 8px 15px;
+  font-size: 13px;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.materii-btn:hover {
+  background-color: #1b2a34;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.materii-modal {
+  background-color: #d3d3d3;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 350px; 
+  width: 100%;
+}
+
+.materii-modal h3 {
+  color: #003366;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.checkbox-group input {
+  margin-right: 10px;
+}
+
+.close-btn {
+  padding: 8px 16px;
+  font-size: 13px;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 15px;
+  display: block;
+  width: 100%;
+}
+
+.close-btn:hover {
+  background-color: #1b2a34;
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ../node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!../node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/addprof.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************/
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #d3d3d3;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .form-container {
+    background-color: #d3d3d3;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    color: #003366;
+  }
+  
+  .prof-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  label {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s;
+    color: black;
+  }
+  
+  input:focus {
+    border-color: #2c3e50;
+  }
+  
+  .submit-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 100%;
+  }
+  
+  .submit-btn:hover {
+    background-color: #1b2a34;
+    transform: scale(1.05);
+  }
+  
+  .submit-btn:active {
+    transform: scale(0.98);
+  }
+  
+  .back-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 15px;
+    font-size: 14px;
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    min-width: 100px;
+  }
+  
+/*!******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ../node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!../node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/addsubject.css ***!
+  \******************************************************************************************************************************************************************************************************************************************************************/
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #d3d3d3;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .form-container {
+    background-color: #d3d3d3;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    color: #003366;
+  }
+  
+  .subject-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  label {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s;
+    color: black;
+  }
+  
+  input:focus {
+    border-color: #2c3e50;
+  }
+  
+  .submit-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 100%;
+  }
+  
+  .submit-btn:hover {
+    background-color: #1b2a34;
+    transform: scale(1.05);
+  }
+  
+  .submit-btn:active {
+    transform: scale(0.98);
+  }
+  
+  .back-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 15px;
+    font-size: 14px;
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    min-width: 100px;
+  }
+  

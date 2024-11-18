@@ -1,5 +1,4 @@
 'use client'
-import Image from "next/image";
 
 import { Route, Routes } from 'react-router-dom';
 

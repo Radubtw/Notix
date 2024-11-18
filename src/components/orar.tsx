@@ -1,12 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
-import Link from 'next/link';
-
-import menu from "./menu"
+import { useNavigate } from 'react-router-dom';
 
 import './orar.css';
 
@@ -28,9 +23,12 @@ const Orar: React.FC = () => {
     setImage(null);
   };
 
+  const navigate = useNavigate();
+
   const handleMenuClick = () => {
-    window.location.href = '/'; 
+    navigate('/');
   };
+
 
   return (
     <div className="orar-container">

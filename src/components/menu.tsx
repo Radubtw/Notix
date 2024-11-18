@@ -27,7 +27,7 @@ function Menu({}: Props) {
           </button>
         </Link>
         
-        <Link to="/medii">
+        <Link to="/gpa">
           <button className='px-24 py-4 rounded-sm bg-current bg-red-600 bg-opacity-85 w-60'>
             Medii
           </button>

@@ -1,0 +1,8 @@
+{
+  "app\\page.tsx -> react-router-dom": {
+    "id": "app\\page.tsx -> react-router-dom",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_react-router-dom_dist_index_js.js"
+    ]
+  }
+}

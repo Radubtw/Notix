@@ -10,6 +10,8 @@ import Materii from "../components/materii";
 import Orar from "../components/orar";
 import Login from "../components/login";
 import Grades from "../components/grades";
+import Gpa from "../components/gpa";
+import Absente from "../components/absente";
 
 const Router = dynamic(() => import('react-router-dom').then(mod => mod.BrowserRouter), { ssr: false });
 
@@ -24,6 +26,8 @@ export default function Home() {
           <Route path="/orar" element={<Orar />} />
           <Route path="/grades" element={<Grades />}/>
           <Route path="/menu" element={<Menu />}/>
+          <Route path="/gpa" element={<Gpa />}/>
+          <Route path="/absente" element={<Absente />}/>
         </Routes>
       </div>
     </Router>
