@@ -1,14 +1,21 @@
-// pages/student.tsx
+'use client'
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import './addstudent.css';
 
-const AddStudent = () => {
+
+const AddStudent: React.FC = () => {
   const [studentData, setStudentData] = useState({
     nume: '',
     prenume: '',
     dataNasterii: '',
     clasa: '',
+    materii: [] as string[],
   });
+
+  const [showMateriiForm, setShowMateriiForm] = useState(false);
+  const availableMaterii = ['Matematică', 'Informatică', 'Biologie', 'Fizică', 'Chimie', 'Istorie', 'Geografie','Edicație Fizică','Lb. Franceză', 'Lb. Engleză', 'Lb. Română'];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -18,15 +25,47 @@ const AddStudent = () => {
     });
   };
 
+  const handleMateriiChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, checked } = e.target;
+    if (checked) {
+      setStudentData({
+        ...studentData,
+        materii: [...studentData.materii, value],
+      });
+    } else {
+      setStudentData({
+        ...studentData,
+        materii: studentData.materii.filter(materie => materie !== value),
+      });
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Datele studentului:', studentData);
-    // Aici poți adăuga logica pentru trimiterea datelor la server
+    setStudentData({
+      nume: '',
+      prenume: '',
+      dataNasterii: '',
+      clasa: '',
+      materii: [],
+    });
+  };
+
+  const navigate = useNavigate();
+
+  const handleMenuClick = () => {
+    navigate('/');
+  };
+
+  const toggleMateriiForm = () => {
+    setShowMateriiForm(!showMateriiForm);
   };
 
   return (
     <div className="form-container">
-      <h2>Formular Student</h2>
+      <h2>Datele studentului</h2>
+      <button className="back-btn" onClick={handleMenuClick}>Meniu</button>
       <form onSubmit={handleSubmit} className="student-form">
         <div className="form-group">
           <label htmlFor="nume">Nume</label>
@@ -76,8 +115,34 @@ const AddStudent = () => {
           />
         </div>
 
+        <div className="form-group">
+          <label htmlFor="materii">Selectează Materii</label>
+          <button type="button" onClick={toggleMateriiForm} className="materii-btn">Alege Materii</button>
+        </div>
+
         <button type="submit" className="submit-btn">Trimite</button>
       </form>
+
+      {showMateriiForm && (
+        <div className="overlay">
+          <div className="materii-modal">
+            <h3>Materii Disponibile</h3>
+            {availableMaterii.map((materie, index) => (
+              <div key={index} className="checkbox-group">
+                <input
+                  type="checkbox"
+                  id={materie}
+                  value={materie}
+                  onChange={handleMateriiChange}
+                  checked={studentData.materii.includes(materie)}
+                />
+                <label htmlFor={materie}>{materie}</label>
+              </div>
+            ))}
+            <button type="button" onClick={toggleMateriiForm} className="close-btn">Închide</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
