@@ -46,7 +46,7 @@
     max-width: 280px;
     margin: 0 auto;
     border: 2px solid #e0e0e0;
-    flex-grow: 1; /* Cardurile vor ocupa același spațiu disponibil */
+    flex-grow: 1; 
 }
 
 .card:hover {
@@ -61,16 +61,12 @@
     margin-bottom: 12px;
 }
 
-.card .profesor {
-    font-size: 14px;
-    color: #7f8c8d;
-    margin-bottom: 20px;
-}
 
 .notes {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
+    color:black;
 }
 
 .note-box {
@@ -90,7 +86,7 @@
 
 .media-generala {
     position: fixed;
-    top: 50%; /* Centrarea pe verticală */
+    top: 50%; 
     right: 20px;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.9);

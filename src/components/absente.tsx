@@ -23,7 +23,7 @@ const Absente: React.FC = () => {
   const navigate = useNavigate();
 
   const handleMenuClick = () => {
-    navigate('/');
+    navigate('/menu');
   };
 
   return (
