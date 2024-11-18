@@ -19,10 +19,11 @@ export default function Home() {
     <Router>
       <div>
         <Routes>
-          <Route path="/" element={<Menu />} />
+          <Route path="/" element={<Login />} />
           <Route path="/materii" element={<Materii />} />
           <Route path="/orar" element={<Orar />} />
           <Route path="/grades" element={<Grades />}/>
+          <Route path="/menu" element={<Menu />}/>
         </Routes>
       </div>
     </Router>

@@ -3,7 +3,7 @@ import professorModel from '../models/professorModel.js';
 
 const login = async (req, res) => {
     const { email, password, isProfessor } = req.body;
-    if(isProfessor === 0)
+    if(isProfessor === "false")
     {
         try {
             // Find the user by email
