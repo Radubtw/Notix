@@ -16,12 +16,14 @@ const listProfessors = async (req, res) => {
 const addProfessor = async (req, res) => {
     console.log('Request object: ', req);
     console.log('Response object: ', res);
-    const {name, surname } = req.body;
+    const {name, surname, email, password } = req.body;
 
     // Ensure courses are formatted correctly
     const professor = new professorModel({
         name,
-        surname
+        surname,
+        email,
+        password
     });
 
     try {

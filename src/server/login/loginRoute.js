@@ -1,7 +1,8 @@
 import express from 'express';
-import { login, logout } from '../login/loginController.js'
-const loginStudentouter = express.Router();
+import { login, logout, sessionChecker } from '../login/loginController.js'
+const loginStudentRouter = express.Router();
 
-loginStudentouter.post("/login", login);
-loginStudentouter.post("/logout", logout);
-export default loginStudentouter;
+loginStudentRouter.post("/login", login);
+loginStudentRouter.post("/logout", logout);
+loginStudentRouter.get("/check-session", sessionChecker);
+export default loginStudentRouter;

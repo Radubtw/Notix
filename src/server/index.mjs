@@ -8,7 +8,7 @@ import markRouter from './routes/MarkRoute.js';
 import attendenceRouter from './routes/attendenceRoute.js';
 import professorRouter from './routes/professorRoute.js';
 import courseRouter from './routes/courseRoute.js';
-import loginStudentouter from './login/loginRoute.js';
+import loginStudentRouter from './login/loginRoute.js';
 
 const app = express();
 const port = 3000;
@@ -36,7 +36,7 @@ app.use("/api/marks", markRouter);
 app.use("/api/attendence", attendenceRouter);
 app.use("/api/professors", professorRouter);
 app.use("/api/courses", courseRouter);
-app.use("/api/session", loginStudentouter);
+app.use("/api/session", loginStudentRouter);
 
 app.get("/", (req, res) => {
     res.send("API WORKING")
