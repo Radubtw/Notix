@@ -27,6 +27,7 @@ const login = async (req, res) => {
             return res.status(500).json({ message: 'Server error' });
         }
     }
+    else{
         try {
             const professor = await professorModel.findOne({ email });
             if (!professor) {
@@ -46,6 +47,7 @@ const login = async (req, res) => {
             console.error(err);
             return res.status(500).json({ message: 'Server error' });
         }
+    }
 };
 
 const logout = async (req, res) => {
@@ -61,10 +63,12 @@ const logout = async (req, res) => {
 };
 
 const sessionChecker = (req, res) => {
+    const user = {
+        id: req.session._id
+    }
     if (req.session && req.session._id) {
-        return res.status(200).json({message: 'Succes = true'});
+        return res.status(200).json({message: 'Succes = true', user});
     } else {
-        // No session or session invalid
         return res.status(401).json({ message: 'Unauthorized. Please log in.' });
     }
 };

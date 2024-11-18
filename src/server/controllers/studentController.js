@@ -25,7 +25,7 @@ const listCourseStudents = async (req, res) => {
 };
 
 const getStudentCourses = async (req, res) => {
-    const { studentId } = req.body; // Get studentId from request body
+    const studentId = req.body.userId; // Get studentId from request body
 
     if (!studentId) {
         return res.status(400).json({ success: false, message: 'Student ID is required' });

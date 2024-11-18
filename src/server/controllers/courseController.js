@@ -3,12 +3,12 @@ import courseModel from '../models/courseModel.js'
 const addCourse = async (req, res) => {
     console.log('Request object: ', req);
     console.log('Response object: ', res);
-    const {name, year, professorId} = req.body;
+    const {name, year, professorName} = req.body;
 
     const course = new courseModel({
         name,
         year,
-        professorId
+        professorName
     });
 
     try {
@@ -35,8 +35,10 @@ const listCourses = async (req, res) => {
 const listStudentCourses = async (req, res) => {
     console.log('Request object:', req); 
     console.log('Response object:', res);
+    console.log('reqIDs', req.body.courseId);
     try {
-        const courses = await courseModel.find({_id: req.body.courseId});
+        const courses = await courseModel.find({ _id: { $in: req.body.courseId } });
+        console.log("courses-controller:", courses);
         res.json({ success: true, data: courses });
     } catch (error) {
         console.error(error);
