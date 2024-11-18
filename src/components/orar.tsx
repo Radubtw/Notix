@@ -1,11 +1,17 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+
+import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+
+import Link from 'next/link';
+
+import menu from "./menu"
 
 import './orar.css';
 
 const Orar: React.FC = () => {
+  const navigate = useNavigate();
   const [image, setImage] = useState<string | null>(null);
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,7 +29,6 @@ const Orar: React.FC = () => {
     setImage(null);
   };
 
-  const navigate = useNavigate();
 
   const handleMenuClick = () => {
     navigate('/menu');

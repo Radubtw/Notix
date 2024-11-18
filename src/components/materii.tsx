@@ -93,7 +93,7 @@ const Materii: React.FC = () => {
     console.log(materii);
   })
   const handleMenuClick = () => {
-    window.location.href = '/';
+    navigate('/menu');
   };
 
   const handleGradesClick = () => {
