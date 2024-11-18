@@ -20,7 +20,7 @@ export default function Home() {
         <Route path="/" element={<Manage />} />
         <Route path="/addprof" element={<AddProf />} />
         <Route path="/addstudent" element={<AddStudent />} />
-        {<Route path="/addsubject" element={<AddSubject />}/>}
+        <Route path="/addsubject" element={<AddSubject />}/>
       </Routes>
     </div>
   </Router>
