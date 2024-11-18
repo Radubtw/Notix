@@ -35,16 +35,21 @@ const listCourses = async (req, res) => {
 const listStudentCourses = async (req, res) => {
     console.log('Request object:', req); 
     console.log('Response object:', res);
-    console.log('reqIDs', req.body.courseId);
+    console.log('reqIDs', req.body.courseIds);
     try {
-        const courses = await courseModel.find({ _id: { $in: req.body.courseId } });
+        const courses = await courseModel.find(
+            { _id: { $in: req.body.courseIds } },
+            'name professorName year' // Include fields you want, exclude `_id`
+        );
         console.log("courses-controller:", courses);
-        res.json({ success: true, data: courses });
+        res.json({ success: true, courses });
     } catch (error) {
         console.error(error);
         res.json({ success: false, message: "Error fetching courses" });
     }
 };
+
+
 
 
 export {addCourse, listCourses, listStudentCourses};

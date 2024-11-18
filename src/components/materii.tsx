@@ -6,9 +6,10 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 interface Materie {
-  materie: string;
-  an: string;
-  profesor: string;
+  id: string;
+  name: string;
+  year: string;
+  professorName: string;
 }
 
 const Materii: React.FC = () => {
@@ -52,8 +53,6 @@ const Materii: React.FC = () => {
           );
 
           setCourseIds(response.data.courses as string[]); // Update materii state with the courses
-          console.log("course_ids_resp", response.data.courses);
-        console.log("course_ids", courseIds);
 
         } catch (error) {
           console.error('Error fetching courses', error);
@@ -80,15 +79,18 @@ const Materii: React.FC = () => {
             },
           }
         );
-        console.log("materii:",response.data);
-        //setMaterii(response.data.courses as Materie[])
-        console.log("courseIds---:", courseIds)
+        console.log("materii:", response.data);
+        setMaterii(response.data.courses as Materie[])
       }
       catch(error){
         console.error('Error fetching courses', error);
       }
   };
   fetchStudentCourses();
+  }, [courseIds])
+
+  useEffect(() => {
+    console.log(materii);
   })
   const handleMenuClick = () => {
     window.location.href = '/';
@@ -113,8 +115,8 @@ const Materii: React.FC = () => {
         <div className="materii-cards">
           {materii.map((item, index) => (
             <div key={index} className="card">
-              <h2>{item.materie}</h2>
-              <p className="profesor">Prof. {item.profesor}</p>
+              <h2>{item.name}</h2>
+              <p className="profesor">Prof. {item.professorName}</p>
               <button className="view-button" onClick={handleGradesClick}>
                 Vizualizare note
               </button>
