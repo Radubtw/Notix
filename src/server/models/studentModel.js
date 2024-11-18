@@ -5,9 +5,11 @@ const studentSchema = new mongoose.Schema({
     name : {type: String, require: true},
     surname : {type: String, require: true},
     birthDate : {type: Date},
-    year: {type: Number, require: true},
-    
-    courses: [{ type: ObjectId, require: true }]
+    year: {type: Number},
+    timetable: {type: String},
+    courses: [{ type: ObjectId}],
+    email : {type: String, require: true},
+    password: {type: String, require: true}
 })
 
 const studentModel = mongoose.models.student || mongoose.model("student", studentSchema);

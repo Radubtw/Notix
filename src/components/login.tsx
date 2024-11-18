@@ -16,7 +16,7 @@ function Login({}: Props) {
                 <label>Password</label>
                 <input type="password" name="password" className='rounded-md'></input>
             </form>
-            <button className='px-16 py-4 rounded-sm bg-current bg-red-600 bg-opacity-85'>Log In</button>
+            <button className='px-16 py-4 rounded-sm bg-current bg-red-600 bg-opacity-85' type="submit">Log In</button>
         </div>
     </div>
   )

@@ -4,6 +4,6 @@ const courseRouter = express.Router();
 
 courseRouter.post("/add", addCourse);
 courseRouter.get("/list", listCourses);
-courseRouter.get("/listStudentCourses", listStudentCourses)
+courseRouter.post("/listStudentCourses", listStudentCourses)
 
 export default courseRouter;

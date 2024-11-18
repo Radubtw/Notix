@@ -24,10 +24,31 @@ const listCourseStudents = async (req, res) => {
     }
 };
 
+const getStudentCourses = async (req, res) => {
+    const { studentId } = req.body; // Get studentId from request body
+
+    if (!studentId) {
+        return res.status(400).json({ success: false, message: 'Student ID is required' });
+    }
+    try {
+        const student = await studentModel.findById(studentId).populate('courses');
+        if (!student) {
+            return res.status(404).json({ success: false, message: 'Student not found' });
+        }
+        res.json({
+            success: true,
+            courses: student.courses
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: 'Error fetching student courses' });
+    }
+};
+
 const addStudent = async (req, res) => {
     console.log('Request object: ', req);
     console.log('Response object: ', res);
-    const {name, surname, birthDate, year, courses } = req.body;
+    const {name, surname, birthDate, year, courses, email, password } = req.body;
 
     // Ensure courses are formatted correctly
     const student = new studentModel({
@@ -36,6 +57,8 @@ const addStudent = async (req, res) => {
         birthDate: new Date(birthDate),
         year: parseInt(year, 10), 
         courses: courses,
+        email,
+        password
     });
 
     try {
@@ -46,4 +69,4 @@ const addStudent = async (req, res) => {
         res.json({ success: false, message: "Error" })
     }
 }
-export {listStudents, addStudent, listCourseStudents}
+export {listStudents, addStudent, listCourseStudents, getStudentCourses}
