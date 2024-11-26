@@ -1,8 +1,8 @@
 import studentModel from '../models/studentModel.js'
 
 const listStudents = async (req, res) => {
-    console.log('Request object:', req); // Should log the request object
-    console.log('Response object:', res); // Should log the response object
+    console.log('Request object:', req); 
+    console.log('Response object:', res); 
     try {
         const students = await studentModel.find({});
         res.json({ success: true, data: students });
@@ -13,8 +13,8 @@ const listStudents = async (req, res) => {
 };
 
 const listCourseStudents = async (req, res) => {
-    console.log('Request object:', req); // Should log the request object
-    console.log('Response object:', res); // Should log the response object
+    console.log('Request object:', req); 
+    console.log('Response object:', res); 
     try {
         const students = await studentModel.find({courses : req.body.courseId});
         res.json({ success: true, data: students });
@@ -25,7 +25,7 @@ const listCourseStudents = async (req, res) => {
 };
 
 const getStudentCourses = async (req, res) => {
-    const studentId = req.body.userId; // Get studentId from request body
+    const studentId = req.body.userId; 
 
     if (!studentId) {
         return res.status(400).json({ success: false, message: 'Student ID is required' });
@@ -50,7 +50,6 @@ const addStudent = async (req, res) => {
     console.log('Response object: ', res);
     const {name, surname, birthDate, year, courses, email, password } = req.body;
 
-    // Ensure courses are formatted correctly
     const student = new studentModel({
         name,
         surname,
