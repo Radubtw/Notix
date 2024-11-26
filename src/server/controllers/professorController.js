@@ -1,8 +1,8 @@
 import professorModel from '../models/professorModel.js'
 
 const listProfessors = async (req, res) => {
-    console.log('Request object:', req); // Should log the request object
-    console.log('Response object:', res); // Should log the response object
+    console.log('Request object:', req); 
+    console.log('Response object:', res); 
     try {
         const professors = await professorModel.find({});
         res.json({ success: true, data: professors });
@@ -18,7 +18,6 @@ const addProfessor = async (req, res) => {
     console.log('Response object: ', res);
     const {name, surname, email, password } = req.body;
 
-    // Ensure courses are formatted correctly
     const professor = new professorModel({
         name,
         surname,

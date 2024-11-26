@@ -39,7 +39,7 @@ const listStudentCourses = async (req, res) => {
     try {
         const courses = await courseModel.find(
             { _id: { $in: req.body.courseIds } },
-            'name professorName year' // Include fields you want, exclude `_id`
+            'name professorName year' 
         );
         console.log("courses-controller:", courses);
         res.json({ success: true, courses });

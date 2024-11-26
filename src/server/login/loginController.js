@@ -6,19 +6,16 @@ const login = async (req, res) => {
     if(isProfessor === "false")
     {
         try {
-            // Find the user by email
 
             const student = await studentModel.findOne({ email });
             if (!student) {
                 return res.status(401).json({ message: 'Invalid email or password' });
             }
 
-            // Direct password comparison
             if (student.password !== password) {
                 return res.status(401).json({ message: 'Invalid email or password' });
             }
 
-            // Store student ID in session
             req.session._id = student._id;
 
             return res.status(200).json({ message: 'Login successful' });
@@ -33,13 +30,10 @@ const login = async (req, res) => {
             if (!professor) {
                 return res.status(401).json({ message: 'Invalid email or password' });
             }
-
-            // Direct password comparison
             if (professor.password !== password) {
                 return res.status(401).json({ message: 'Invalid email or password' });
             }
 
-            // Store student ID in session
             req.session._id = professor._id;
 
             return res.status(200).json({ message: 'Login successful' });
@@ -57,7 +51,7 @@ const logout = async (req, res) => {
             return res.status(500).json({ message: 'Failed to log out' });
         }
 
-        res.clearCookie('cookie'); // Clear the session cookie
+        res.clearCookie('cookie'); 
         return res.status(200).json({ message: 'Logout successful' });
     });
 };
