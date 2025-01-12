@@ -6,7 +6,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 interface Materie {
-  id: string;
+  _id: string;
   name: string;
   year: string;
   professorName: string;
@@ -14,12 +14,11 @@ interface Materie {
 
 const Materii: React.FC = () => {
   const [userId, setUserId] = useState<string | null>(null);
-  const [materii, setMaterii] = useState<Materie[]>([]); // Store fetched courses
-  const [courseIds, setCourseIds] = useState<string[]>([]); // Store fetched courses
+  const [materii, setMaterii] = useState<Materie[]>([]);
+  const [courseIds, setCourseIds] = useState<string[]>([]);
 
   const navigate = useNavigate();
 
-  // First useEffect: Check session and get the userId
   useEffect(() => {
     const axiosInstance = axios.create({
       withCredentials: true,
@@ -33,9 +32,8 @@ const Materii: React.FC = () => {
       .catch((error) => {
         console.error('Error checking session', error);
       });
-  }, []); // Run only once when the component mounts
+  }, []);
 
-  // Second useEffect: Fetch courses when userId is available
   useEffect(() => {
     if (userId) {
       const fetchCourses = async () => {
@@ -95,8 +93,8 @@ const Materii: React.FC = () => {
     navigate('/menu');
   };
 
-  const handleGradesClick = () => {
-    navigate('/grades');
+  const handleGradesClick = (studentId: string, courseId: string) => {
+    navigate(`/grades?courseId=${courseId}`);
   };
 
   return (
@@ -105,7 +103,7 @@ const Materii: React.FC = () => {
       <button className="menu-btn" onClick={handleMenuClick}>
         Meniu
       </button>
-
+  
       {materii.length === 0 ? (
         <div className="no-materii-message">
           <p>Nu există nimic de afișat</p>
@@ -116,7 +114,10 @@ const Materii: React.FC = () => {
             <div key={index} className="card">
               <h2>{item.name}</h2>
               <p className="profesor">Prof. {item.professorName}</p>
-              <button className="view-button" onClick={handleGradesClick}>
+              <button
+                className="view-button"
+                onClick={() => handleGradesClick(userId as string, item._id)}
+              >
                 Vizualizare note
               </button>
             </div>

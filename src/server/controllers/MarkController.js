@@ -26,7 +26,7 @@ const listMarks = async (req, res) => {
     console.log('Response object:', res);
     try {
         const marks = await markModel.find({courseId : req.body.courseId, studentId : req.body.studentId});
-        res.json({ success: true, data: marks });
+        res.json({ success: true, marks: marks });
     } catch (error) {
         console.error(error);
         res.json({ success: false, message: "Error fetching marks" });
