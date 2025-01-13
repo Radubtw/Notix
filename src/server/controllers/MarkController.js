@@ -22,10 +22,9 @@ const addMark = async (req, res) => {
 }
 
 const listMarks = async (req, res) => {
-    console.log('Request object:', req); 
-    console.log('Response object:', res);
     try {
-        const marks = await markModel.find({courseId : req.body.courseId, studentId : req.body.studentId});
+        const marks = await markModel.find({courseId : req.body.courseId, studentId : req.body.userId});
+        console.log(marks);
         res.json({ success: true, marks: marks });
     } catch (error) {
         console.error(error);
