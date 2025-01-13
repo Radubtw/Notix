@@ -24,8 +24,8 @@ const listAbsences = async (req, res) => {
     console.log('Request object:', req); 
     console.log('Response object:', res);
     try {
-        const absences = await attendenceModel.find({courseId : req.body.courseId, studentId : req.body.studentId});
-        res.json({ success: true, data: absences });
+        const absences = await attendenceModel.find({studentId : req.body.userId});
+        res.json({ success: true, absences: absences });
     } catch (error) {
         console.error(error);
         res.json({ success: false, message: "Error fetching marks" });

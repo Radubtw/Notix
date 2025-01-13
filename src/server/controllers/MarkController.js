@@ -32,5 +32,34 @@ const listMarks = async (req, res) => {
     }
 };
 
+const listAverage = async (req, res) => {
+    try {
+        const { courseIds } = req.body;
 
-export {addMark, listMarks};
+        if (!courseIds || !Array.isArray(courseIds)) {
+            return res.status(400).json({ error: 'Invalid or missing courseIds' });
+        }
+
+        // Calculate the average marks per courseId
+        const averages = await markModel.aggregate([
+            {
+                $match: {
+                    courseId: { $in: courseIds } // No need for ObjectId since courseId is a String
+                },
+            },
+            {
+                $group: {
+                    _id: '$courseId',
+                    averageMark: { $avg: '$mark' },
+                },
+            },
+        ]);
+
+        res.status(200).json({ averages });
+    } catch (error) {
+        console.error('Error calculating averages:', error);
+        res.status(500).json({ error: 'Failed to calculate averages' });
+    }
+};
+
+export {addMark, listMarks, listAverage};

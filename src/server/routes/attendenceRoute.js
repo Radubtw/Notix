@@ -3,6 +3,6 @@ import { addAbsence, listAbsences} from '../controllers/attendenceController.js'
 const attendenceRouter = express.Router();
 
 attendenceRouter.post("/add", addAbsence);
-attendenceRouter.get("/list", listAbsences);
+attendenceRouter.post("/list", listAbsences);
 
 export default attendenceRouter;

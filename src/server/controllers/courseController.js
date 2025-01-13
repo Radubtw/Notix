@@ -32,6 +32,19 @@ const listCourses = async (req, res) => {
     }
 };
 
+const listCourseByCourseId = async (req, res) => {
+    console.log('Request object:', req); 
+    console.log('Response object:', res);
+    console.log(req.body.courseId);
+    try {
+        const course = await courseModel.find({_id : req.body.courseId});
+        res.json({ success: true, course: course });
+    } catch (error) {
+        console.error(error);
+        res.json({ success: false, message: "Error fetching courses" });
+    }
+};
+
 const listStudentCourses = async (req, res) => {
     console.log('Request object:', req); 
     console.log('Response object:', res);
@@ -52,4 +65,4 @@ const listStudentCourses = async (req, res) => {
 
 
 
-export {addCourse, listCourses, listStudentCourses};
+export {addCourse, listCourses,listCourseByCourseId, listStudentCourses};
