@@ -7,7 +7,8 @@ import axios from 'axios';
 
 interface Absenta {
   courseId: string;
-  date: Date;
+  courseName: string;
+  date: string;
 }
 interface Course {
   name: string;
@@ -17,8 +18,6 @@ interface Course {
 const Absente: React.FC = () => {
   const [absente, setAbsente] = useState<Absenta[]>([]);
   const [userId, setUserId] = useState<string | null>(null);
-  const [courseId, setCourseId] = useState<string | null>(null);
-  const [courses, setCourses] = useState<Course[]>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -66,30 +65,6 @@ const Absente: React.FC = () => {
     }
   }, [userId]);
 
-  useEffect(() => {
-    const fetchCourse = async () => {
-      try {
-        const response = await axios.post(
-          'http://localhost:3001/api/courses/listCourseByCourseId',
-          {
-            absente,
-          },
-          {
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        );
-        console.log("materii:", response.data);
-        setCourseIds(response.data.courses as courseIds)
-      }
-      catch(error){
-        console.error('Error fetching courses', error);
-      }
-  };
-  fetchStudentCourses();
-  }, [courseIds])
-
     const formatDate = (date: string): string => {
     const dateObj = new Date(date);
     const day = dateObj.getDate();
@@ -97,9 +72,6 @@ const Absente: React.FC = () => {
     const year = dateObj.getFullYear();
     return `${day} ${month} ${year}`;
   };
-
-  
-
 
   const handleMenuClick = () => {
     navigate('/menu');
@@ -119,7 +91,8 @@ const Absente: React.FC = () => {
           {absente.map((absenta, index) => (
             <div key={index} className="absenta-card">
               <h2>Absență</h2>
-              <div className="materie">{absenta.courseId}</div>
+              <div className="materie">{absenta.courseName}</div>
+              <p className="date">{absenta.date}</p>
             </div>
           ))}
         </div>

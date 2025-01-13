@@ -3,12 +3,13 @@ import attendenceModel from "../models/attendenceModel.js";
 const addAbsence = async (req, res) => {
     console.log('Request object: ', req);
     console.log('Response object: ', res);
-    const {courseId, studentId, date} = req.body;
+    const {courseId, courseName, studentId, date} = req.body;
 
     const absence = new attendenceModel({
         courseId,
+        courseName,
         studentId,
-        date : new Date(date)
+        date
     });
 
     try {
