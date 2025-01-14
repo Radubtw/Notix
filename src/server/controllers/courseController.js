@@ -25,7 +25,7 @@ const listCourses = async (req, res) => {
     console.log('Response object:', res);
     try {
         const courses = await courseModel.find({});
-        res.json({ success: true, data: courses });
+        res.json({ success: true, courses: courses });
     } catch (error) {
         console.error(error);
         res.json({ success: false, message: "Error fetching courses" });
@@ -61,8 +61,5 @@ const listStudentCourses = async (req, res) => {
         res.json({ success: false, message: "Error fetching courses" });
     }
 };
-
-
-
 
 export {addCourse, listCourses,listCourseByCourseId, listStudentCourses};

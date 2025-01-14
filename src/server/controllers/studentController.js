@@ -17,7 +17,7 @@ const listCourseStudents = async (req, res) => {
     console.log('Response object:', res); 
     try {
         const students = await studentModel.find({courses : req.body.courseId});
-        res.json({ success: true, data: students });
+        res.json({ success: true, students: students });
     } catch (error) {
         console.error(error);
         res.json({ success: false, message: "Error fetching students" });

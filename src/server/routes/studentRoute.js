@@ -4,7 +4,7 @@ import { listStudents, listCourseStudents, addStudent, getStudentCourses } from 
 const studentRouter = express.Router();
 
 studentRouter.get("/list", listStudents);
-studentRouter.get("/listCourseStudents", listCourseStudents);
+studentRouter.post("/listCourseStudents", listCourseStudents);
 studentRouter.post("/add", addStudent);
 studentRouter.post("/getStudentCourses", getStudentCourses);
 export default studentRouter;
