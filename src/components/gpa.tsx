@@ -90,7 +90,9 @@ const Gpa: React.FC = () => {
         try {
           const response = await axios.post(
             'http://localhost:3001/api/marks/listAverage',
-            { courseIds }, // Updated endpoint path
+            { courseIds,
+              userId
+             },
             { headers: { 'Content-Type': 'application/json' } }
           );
           const averagesMap = response.data.averages.reduce(
@@ -129,7 +131,7 @@ const Gpa: React.FC = () => {
       </button>
       <div className="gpa-cards">
         {materii.map((materie) => {
-          const average = averages[materie._id] || 0; // Default to 0 if no average is found
+          const average = averages[materie._id] || 0;
           return (
             <div key={materie._id} className="card">
               <h2>{materie.name}</h2>
